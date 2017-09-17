@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: LaTeX local variables
+# key: LaTeX
+# --
+<!--
+Local Variables:
+compile-command: "`(format "pandoc -f markdown -o %s.pdf %s.%s" (file-name-base (buffer-file-name)) (file-name-base (buffer-file-name)) (file-name-extension (buffer-file-name)))`"
+ispell-local-dictionary: "en"
+mode: markdown
+mode: flyspell
+mode: auto-fill
+End:
+-->

@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: L&F Header
+# key: header
+# --
+/**
+ * Link & Found ─ nothing to loose
+ * Copyright (c) Link & Found, www.linkandfound.com
+ *
+ * @copyright   Copyright (c) 2014-2017 Link & Found
+ * @author      Francesc Rocher <rocher@linkandfound.com>
+ * @link        http://linkandfound.com
+ * @since       0.1.0
+ * @license     private
+ */

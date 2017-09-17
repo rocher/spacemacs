@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: LaTeX header
+# key: LaTeX
+# --
+---
+header-includes:
+    - \usepackage{array}
+    - \usepackage{color}
+    - \usepackage[usenames,dvipsnames]{xcolor}
+    - \usepackage{multicol}
+documentclass: article
+numbersections: true
+papersize: a4
+geometry: margin=1.3in
+fontsize: 11pt
+urlcolor: blue
+title:
+    - $1
+author:
+    - Francesc Rocher \ \ \`<francesc.rocher@gmail.com>\`
+date: `(format-time-string "%B %Y")`
+toc: true
+abstract: $2
+keywords: $3
+---
