@@ -47,4 +47,5 @@ python-*-docs-html
 .mc-lists.el
 
 # Private directory
+.sx/
 /games/
