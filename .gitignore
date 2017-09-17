@@ -47,5 +47,6 @@ python-*-docs-html
 .mc-lists.el
 
 # Private directory
+private/rocher/proxy-default.el
 .sx/
 /games/
