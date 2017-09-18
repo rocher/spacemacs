@@ -82,8 +82,6 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(ada-ref-man
                                       calfw
-                                      ;; color-theme-sanityinc-tomorrow
-                                      ;; creamsody-theme
                                       elf-mode
                                       flycheck-package
                                       geben
@@ -91,15 +89,11 @@ This function should only modify configuration layer settings."
                                       gotham-theme
                                       helm-youtube
                                       kanban
-                                      ;; kaolin-theme
-                                      ;; kosmos-theme
                                       logview
                                       multiple-cursors
-                                      ;; nord-theme
                                       olivetti
                                       psvn
                                       sx
-                                      ;; tao-theme
                                       textile-mode
                                       ztree
                                       )
