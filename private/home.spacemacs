@@ -410,6 +410,7 @@ before packages are loaded."
 
   ;; hooks
   ;; not-needed (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (spacemacs/add-to-hook 'pdf-view-mode-hook '(pdf-view-midnight-minor-mode))
 
   ;; keys
   (global-set-key [(control meta return)] '(lambda ()
