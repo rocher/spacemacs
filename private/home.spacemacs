@@ -85,6 +85,7 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(ada-ref-man
                                       calfw
+                                      dynamic-ruler
                                       elf-mode
                                       figlet
                                       flycheck-package
@@ -399,7 +400,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; proxy settings
   (when (file-exists-p "~/.emacs.d/private/rocher/proxy-default.el")
     (load "~/.emacs.d/private/rocher/proxy-default.el"))
-)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -439,7 +440,7 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-)
+  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
