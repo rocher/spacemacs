@@ -150,8 +150,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark)
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -451,7 +451,7 @@ This function is called at the very end of Spacemacs initialization."
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (zeal-at-point web-beautify pdf-tools tablist pandoc-mode ox-pandoc magit-gh-pulls livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-dash github-search github-clone gist gh marshal logito pcache ht erlang d-mode csv-mode company-tern dash-functional tern company-dcd ivy flycheck-dmd-dub coffee-mode ac-ispell ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent auto-compile auto-dictionary auto-highlight-symbol auto-yasnippet bm browse-at-remote buffer-move clang-format clean-aindent-mode cmake-ide cmake-mode column-enforce-mode company-c-headers company-shell company-statistics define-word diff-hl disaster dumb-jump dynamic-ruler editorconfig elisp-slime-nav esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args evil-ediff evil-exchange evil-iedit-state evil-indent-plus evil-lion evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-org evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region eyebrowse fancy-battery fill-column-indicator fish-mode flx-ido flycheck-bashate flycheck-pos-tip flyspell-correct-helm fuzzy gh-md git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode gnuplot golden-ratio google-translate gotham-theme helm-ag helm-c-yasnippet helm-company helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-purpose helm-swoop helm-themes help-fns+ hide-comnt highlight-indentation highlight-numbers highlight-parentheses hl-todo htmlize hungry-delete indent-guide info+ insert-shebang link-hint linum-relative lorem-ipsum macrostep magit-gitflow markdown-toc mmm-mode move-text multi-term neotree open-junk-file org-brain org-bullets org-download org-pomodoro org-present org-projectile orgit ox-reveal ox-twbs paradox password-generator pcre2el persp-fr popwin rainbow-delimiters realgud restart-emacs shell-pop smeargle spaceline string-inflection sx symon toc-org use-package uuidgen vi-tilde-fringe volatile-highlights which-key winum ws-butler xterm-color)))
+    (ac-ispell ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent auto-compile auto-dictionary auto-highlight-symbol auto-yasnippet bm browse-at-remote buffer-move clang-format clean-aindent-mode cmake-ide cmake-mode coffee-mode column-enforce-mode company-c-headers company-dcd company-shell company-statistics company-tern csv-mode d-mode dash-functional define-word diff-hl disaster dumb-jump dynamic-ruler editorconfig elisp-slime-nav erlang esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args evil-ediff evil-exchange evil-iedit-state evil-indent-plus evil-lion evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-org evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region eyebrowse fancy-battery fill-column-indicator fish-mode flx-ido flycheck-bashate flycheck-dmd-dub flycheck-pos-tip flyspell-correct-helm fuzzy gh gh-md gist git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode github-clone github-search gnuplot golden-ratio google-translate gotham-theme helm-ag helm-c-yasnippet helm-company helm-dash helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-purpose helm-swoop helm-themes help-fns+ hide-comnt highlight-indentation highlight-numbers highlight-parentheses hl-todo ht htmlize hungry-delete indent-guide info+ insert-shebang ivy js-doc js2-mode js2-refactor json-mode json-reformat json-snatcher link-hint linum-relative livid-mode logito lorem-ipsum macrostep magit-gh-pulls magit-gitflow markdown-toc marshal mmm-mode move-text multi-term multiple-cursors neotree open-junk-file org-brain org-bullets org-download org-pomodoro org-present org-projectile orgit ox-pandoc ox-reveal ox-twbs pandoc-mode paradox password-generator pcache pcre2el pdf-tools persp-fr popwin rainbow-delimiters realgud restart-emacs shell-pop simple-httpd skewer-mode smeargle spaceline string-inflection sx symon tablist tern toc-org use-package uuidgen vi-tilde-fringe volatile-highlights web-beautify which-key winum ws-butler xterm-color zeal-at-point)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(php-mode-coding-style (quote psr2))
  '(tramp-syntax (quote default) nil (tramp))
@@ -466,56 +466,3 @@ This function is called at the very end of Spacemacs initialization."
  '(line-number ((t (:inherit (shadow default) :height 0.9))))
  '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))
 )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(c-default-style
-   (quote
-    ((c-mode . "stroustrup")
-     (c++-mode . "stroustrup")
-     (drupal-mode . "drupal")
-     (java-mode . "java")
-     (awk-mode . "awk")
-     (other . "gnu"))))
- '(c-offsets-alist (quote ((case-label . +))))
- '(calendar-week-start-day 1)
- '(confirm-kill-emacs (quote y-or-n-p))
- '(diff-hl-margin-mode t)
- '(evil-want-Y-yank-to-eol nil)
- '(flycheck-php-phpcs-executable "~/bin/phpcs")
- '(flycheck-php-phpmd-executable nil)
- '(helm-apropos-fuzzy-match t)
- '(helm-buffers-fuzzy-matching t)
- '(helm-completion-in-region-fuzzy-match t)
- '(helm-file-cache-fuzzy-match t)
- '(helm-info-default-sources
-   (quote
-    (helm-source-info-libc helm-source-info-elisp helm-source-info-cl helm-source-info-eieio helm-source-info-pages)))
- '(helm-lisp-fuzzy-completion t)
- '(helm-mode-fuzzy-match t)
- '(helm-recentf-fuzzy-match t)
- '(history-delete-duplicates t)
- '(initial-frame-alist (quote ((cursor-type bar . 2) (vertical-scroll-bars))))
- '(isearch-allow-scroll t)
- '(kill-whole-line t)
- '(olivetti-body-width 90)
- '(org-return-follows-link t)
- '(org-support-shift-select (quote always))
- '(package-selected-packages
-   (quote
-    (ac-ispell ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent auto-compile auto-dictionary auto-highlight-symbol auto-yasnippet bm browse-at-remote buffer-move clang-format clean-aindent-mode cmake-ide cmake-mode column-enforce-mode company-c-headers company-shell company-statistics define-word diff-hl disaster dumb-jump dynamic-ruler editorconfig elisp-slime-nav esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args evil-ediff evil-exchange evil-iedit-state evil-indent-plus evil-lion evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-org evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region eyebrowse fancy-battery fill-column-indicator fish-mode flx-ido flycheck-bashate flycheck-pos-tip flyspell-correct-helm fuzzy gh-md git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode gnuplot golden-ratio google-translate gotham-theme helm-ag helm-c-yasnippet helm-company helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-purpose helm-swoop helm-themes help-fns+ hide-comnt highlight-indentation highlight-numbers highlight-parentheses hl-todo htmlize hungry-delete indent-guide info+ insert-shebang link-hint linum-relative lorem-ipsum macrostep magit-gitflow markdown-toc mmm-mode move-text multi-term neotree open-junk-file org-brain org-bullets org-download org-pomodoro org-present org-projectile orgit ox-reveal ox-twbs paradox password-generator pcre2el persp-fr popwin rainbow-delimiters realgud restart-emacs shell-pop smeargle spaceline string-inflection sx symon toc-org use-package uuidgen vi-tilde-fringe volatile-highlights which-key winum ws-butler xterm-color)))
- '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
- '(php-mode-coding-style (quote psr2))
- '(tramp-syntax (quote default) nil (tramp))
- '(truncate-partial-width-windows 90)
- '(user-mail-address "rocher@linkandfound.com")
- '(visible-bell t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(line-number ((t (:inherit (shadow default) :height 0.9))))
- '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))

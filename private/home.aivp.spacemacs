@@ -160,8 +160,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark)
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -379,6 +379,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; proxy settings
   (when (file-exists-p "~/.emacs.d/private/rocher/proxy-default.el")
     (load "~/.emacs.d/private/rocher/proxy-default.el"))
+
+  ;; dotspacemacs configuration layers
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-fill-column 75)))
   )
 
 (defun dotspacemacs/user-config ()
@@ -458,9 +462,10 @@ This function is called at the very end of Spacemacs initialization."
  '(org-support-shift-select (quote always))
  '(package-selected-packages
    (quote
-    (web-beautify tablist org-category-capture alert log4e gntp markdown-mode livid-mode skewer-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc simple-httpd htmlize haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter gh marshal logito pcache ht flyspell-correct pos-tip flycheck magit magit-popup git-commit with-editor web-completion-data company-tern dash-functional tern restclient know-your-http-well ac-php-core xcscope php-mode company coffee-mode yasnippet anaconda-mode pythonic auto-complete textile-mode po-mode ob-sql-mode ob-php ob-ipython yapfify xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon sx string-inflection sql-indent spaceline smeargle slim-mode shell-pop scss-mode sass-mode restclient-helm restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pony-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-fr pdf-tools pcre2el password-generator paradox pandoc-mode ox-twbs ox-reveal ox-pandoc orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file ob-restclient ob-http neotree multi-term move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum live-py-mode linum-relative link-hint insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gotham-theme google-translate golden-ratio gnuplot github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help engine-mode emmet-mode elisp-slime-nav editorconfig dynamic-ruler dumb-jump drupal-mode diff-hl define-word cython-mode company-web company-statistics company-shell company-restclient company-php company-anaconda column-enforce-mode clean-aindent-mode buffer-move browse-at-remote bm auto-yasnippet auto-highlight-symbol auto-dictionary auto-complete-rst auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (ac-ispell ac-php-core ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent alert anaconda-mode auto-compile auto-complete auto-complete-rst auto-dictionary auto-highlight-symbol auto-yasnippet bm browse-at-remote buffer-move clean-aindent-mode coffee-mode column-enforce-mode company company-anaconda company-php company-restclient company-shell company-statistics company-tern company-web cython-mode dash-functional define-word diff-hl drupal-mode dumb-jump dynamic-ruler editorconfig elisp-slime-nav emmet-mode engine-mode esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args evil-ediff evil-exchange evil-iedit-state evil-indent-plus evil-lion evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-org evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region eyebrowse fancy-battery fill-column-indicator fish-mode flx-ido flycheck flycheck-bashate flycheck-pos-tip flyspell-correct flyspell-correct-helm fringe-helper fuzzy gh gh-md gist git-commit git-gutter git-gutter+ git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode github-clone github-search gitignore-mode gntp gnuplot golden-ratio google-translate gotham-theme haml-mode helm-ag helm-c-yasnippet helm-company helm-css-scss helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-purpose helm-pydoc helm-swoop helm-themes help-fns+ hide-comnt highlight-indentation highlight-numbers highlight-parentheses hl-todo ht htmlize hungry-delete hy-mode impatient-mode indent-guide info+ insert-shebang js-doc js2-mode js2-refactor json-mode json-reformat json-snatcher know-your-http-well link-hint linum-relative live-py-mode livid-mode log4e logito lorem-ipsum macrostep magit magit-gh-pulls magit-gitflow magit-popup markdown-mode markdown-toc marshal mmm-mode move-text multi-term multiple-cursors neotree ob-http ob-ipython ob-php ob-restclient ob-sql-mode open-junk-file org-brain org-bullets org-category-capture org-download org-pomodoro org-present org-projectile orgit ox-pandoc ox-reveal ox-twbs pandoc-mode paradox password-generator pcache pcre2el pdf-tools persp-fr php-auto-yasnippets php-extras php-mode phpcbf phpunit pip-requirements po-mode pony-mode popwin pos-tip pug-mode py-isort pyenv-mode pytest pythonic pyvenv rainbow-delimiters restart-emacs restclient restclient-helm sass-mode scss-mode shell-pop simple-httpd skewer-mode slim-mode smeargle spaceline sql-indent string-inflection sx symon tablist tagedit tern textile-mode toc-org use-package uuidgen vi-tilde-fringe volatile-highlights web-beautify web-completion-data web-mode which-key winum with-editor ws-butler xcscope xterm-color yapfify yasnippet)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(php-mode-coding-style (quote psr2))
+ '(python-fill-docstring-style (quote django))
  '(tramp-syntax (quote default) nil (tramp))
  '(truncate-partial-width-windows 90)
  '(user-mail-address "rocher@linkandfound.com")
@@ -473,56 +478,3 @@ This function is called at the very end of Spacemacs initialization."
  '(line-number ((t (:inherit (shadow default) :height 0.9))))
  '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))
 )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(c-default-style
-   (quote
-    ((c-mode . "stroustrup")
-     (c++-mode . "stroustrup")
-     (drupal-mode . "drupal")
-     (java-mode . "java")
-     (awk-mode . "awk")
-     (other . "gnu"))))
- '(c-offsets-alist (quote ((case-label . +))))
- '(calendar-week-start-day 1)
- '(confirm-kill-emacs (quote y-or-n-p))
- '(diff-hl-margin-mode t)
- '(evil-want-Y-yank-to-eol nil)
- '(flycheck-php-phpcs-executable "~/bin/phpcs")
- '(flycheck-php-phpmd-executable nil)
- '(helm-apropos-fuzzy-match t)
- '(helm-buffers-fuzzy-matching t)
- '(helm-completion-in-region-fuzzy-match t)
- '(helm-file-cache-fuzzy-match t)
- '(helm-info-default-sources
-   (quote
-    (helm-source-info-libc helm-source-info-elisp helm-source-info-cl helm-source-info-eieio helm-source-info-pages)))
- '(helm-lisp-fuzzy-completion t)
- '(helm-mode-fuzzy-match t)
- '(helm-recentf-fuzzy-match t)
- '(history-delete-duplicates t)
- '(initial-frame-alist (quote ((cursor-type bar . 2) (vertical-scroll-bars))))
- '(isearch-allow-scroll t)
- '(kill-whole-line t)
- '(olivetti-body-width 90)
- '(org-return-follows-link t)
- '(org-support-shift-select (quote always))
- '(package-selected-packages
-   (quote
-    (textile-mode po-mode ob-sql-mode ob-php ob-ipython yapfify xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon sx string-inflection sql-indent spaceline smeargle slim-mode shell-pop scss-mode sass-mode restclient-helm restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pony-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-fr pdf-tools pcre2el password-generator paradox pandoc-mode ox-twbs ox-reveal ox-pandoc orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file ob-restclient ob-http neotree multi-term move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum live-py-mode linum-relative link-hint insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gotham-theme google-translate golden-ratio gnuplot github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help engine-mode emmet-mode elisp-slime-nav editorconfig dynamic-ruler dumb-jump drupal-mode diff-hl define-word cython-mode company-web company-statistics company-shell company-restclient company-php company-anaconda column-enforce-mode clean-aindent-mode buffer-move browse-at-remote bm auto-yasnippet auto-highlight-symbol auto-dictionary auto-complete-rst auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
- '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
- '(php-mode-coding-style (quote psr2))
- '(tramp-syntax (quote default) nil (tramp))
- '(truncate-partial-width-windows 90)
- '(user-mail-address "rocher@linkandfound.com")
- '(visible-bell t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(line-number ((t (:inherit (shadow default) :height 0.9))))
- '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))
