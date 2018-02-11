@@ -28,6 +28,8 @@
 (global-set-key [(control meta ?j)] 'kill-buffer)
 (global-set-key [(control next)] 'persp-next)
 (global-set-key [(control prior)] 'persp-prev)
+(global-set-key [(control meta next)] 'persp-fr-move-right)
+(global-set-key [(control meta prior)] 'persp-fr-move-left)
 ;; (global-set-key [(control meta return)] 'kill-buffer) ;; set in .spacemacs
 (global-set-key [(control return)] 'rocher/switch-to-other-buffer)
 (global-set-key [(control shift f4)] 'eval-buffer)
