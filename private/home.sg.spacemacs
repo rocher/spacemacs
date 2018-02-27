@@ -411,6 +411,12 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; packages
+  (use-package org
+    :config
+    (setq org-startup-indented t)
+    (require 'org-pdfview))
+
   ;; modes
   ;; (golden-ratio-mode)
   (delete-selection-mode)
