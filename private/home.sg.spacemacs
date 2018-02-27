@@ -97,8 +97,7 @@ This function should only modify configuration layer settings."
                                       gotham-theme
                                       helm-youtube
                                       kanban
-                                      kaolin-themes
-                                      logview
+                                      ;; logview
                                       multiple-cursors
                                       ob-ipython
                                       ;; ob-php
