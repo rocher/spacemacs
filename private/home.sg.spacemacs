@@ -471,6 +471,8 @@ This function is called at the very end of Spacemacs initialization."
  '(confirm-kill-emacs 'y-or-n-p)
  '(diff-hl-margin-mode t)
  '(evil-want-Y-yank-to-eol nil)
+ '(flycheck-clang-language-standard "c++14")
+ '(flycheck-gcc-language-standard "c++14")
  '(flycheck-php-phpcs-executable "~/bin/phpcs")
  '(flycheck-php-phpmd-executable nil)
  '(helm-apropos-fuzzy-match t)
