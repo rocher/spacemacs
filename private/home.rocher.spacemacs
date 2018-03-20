@@ -91,7 +91,6 @@ This function should only modify configuration layer settings."
                                       editorconfig
                                       elf-mode
                                       figlet
-                                      flycheck-package
                                       geben
                                       geben-helm-projectile
                                       gotham-theme
