@@ -91,16 +91,15 @@ This function should only modify configuration layer settings."
                                       editorconfig
                                       elf-mode
                                       figlet
-                                      flycheck-package
                                       geben
                                       geben-helm-projectile
                                       gotham-theme
                                       helm-youtube
                                       kanban
-                                      ;; logview
+                                      kaolin-themes
+                                      logview
                                       multiple-cursors
                                       ob-ipython
-                                      ;; ob-php
                                       ob-prolog
                                       ob-sql-mode
                                       olivetti
