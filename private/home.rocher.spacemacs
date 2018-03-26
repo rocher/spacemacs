@@ -412,6 +412,9 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; load path
+  (add-to-load-path-if-exists "/home/rocher/project/emacs/ecb")
+
   ;; packages
   (use-package org
     :config
@@ -472,6 +475,21 @@ This function is called at the very end of Spacemacs initialization."
  '(calendar-week-start-day 1)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(diff-hl-margin-mode t)
+ '(ecb-activation-selects-ecb-frame-if-already-active t)
+ '(ecb-layout-name "leftright2")
+ '(ecb-layout-window-sizes
+   (quote
+    (("leftright2"
+      (ecb-directories-buffer-name 0.1368421052631579 . 0.6382978723404256)
+      (ecb-sources-buffer-name 0.1368421052631579 . 0.3404255319148936)
+      (ecb-methods-buffer-name 0.2 . 0.6382978723404256)
+      (ecb-history-buffer-name 0.2 . 0.3404255319148936)))))
+ '(ecb-options-version "2.50")
+ '(ecb-source-path
+   (quote
+    (("/home/rocher/project/codingame" "codingame")
+     ("/home/rocher/project/crayd" "crayd"))))
+ '(ecb-tree-buffer-style (quote image))
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-clang-language-standard "c++14")
  '(flycheck-gcc-language-standard "c++14")
@@ -512,5 +530,15 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ecb-analyse-face ((t (:inherit ecb-default-highlight-face))))
+ '(ecb-default-general-face ((t (:height 0.9))))
+ '(ecb-default-highlight-face ((t (:inherit highlight))))
+ '(ecb-directories-general-face ((t (:inherit ecb-default-general-face :height 1.0))))
+ '(ecb-directory-face ((t (:inherit ecb-default-highlight-face))))
+ '(ecb-history-bucket-node-dir-soure-path-face ((t (:inherit ecb-history-bucket-node-face :foreground "white"))))
+ '(ecb-history-face ((t (:inherit ecb-default-highlight-face))))
+ '(ecb-source-face ((t (:inherit ecb-default-highlight-face))))
+ '(ecb-tag-header-face ((t (:inherit ecb-default-highlight-face))))
+ '(ecb-tree-guide-line-face ((t (:inherit ecb-default-general-face :foreground "gray" :height 1.0))))
  '(line-number ((t (:inherit (shadow default) :height 0.9))))
  '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))
