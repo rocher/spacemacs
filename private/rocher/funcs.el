@@ -1,4 +1,3 @@
-
 ;; rocher/functions
 
 (defun rocher/default-face-downscale ()
@@ -165,6 +164,12 @@
     (progn
       (show-paren-mode)
       (setq show-paren-style 'expression))))
+
+(defun rocher/treemacs-switch-window ()
+  (interactive)
+  (if (treemacs--is-visible?)
+      (treemacs-select-window)
+    (treemacs-projectile-toggle)))
 
 (defun rocher/vc-dir ()
   "Opens a version control session in the current directory."
