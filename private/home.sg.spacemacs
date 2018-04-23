@@ -106,6 +106,7 @@ This function should only modify configuration layer settings."
                                       org-pdfview
                                       po-mode
                                       psvn
+                                      sr-speedbar
                                       sx
                                       textile-mode
                                       ztree
@@ -190,7 +191,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 11.0 ;12.5
+                               :size 10.5; 11.0 ;12.5
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -445,7 +446,14 @@ before packages are loaded."
   ;; editorconfig
   (if (functionp 'editorconfig-mode)
       (editorconfig-mode))
-)
+
+  ;; c++mode
+  (defconst autosar-adaptive-c++-style
+    '("cc-mode"
+      (c-offsets-alist . ((innamespace . [0])))))
+
+  (c-add-style "autosar-adaptive-c++-style" autosar-adaptive-c++-style)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -460,32 +468,34 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(browse-url-browser-function 'eww-browse-url)
+ '(browse-url-browser-function (quote eww-browse-url))
  '(c-default-style
-   '((c-mode . "stroustrup")
-     (c++-mode . "stroustrup")
+   (quote
+    ((c-mode . "stroustrup")
+     (c++-mode . "autosar-adaptive-c++-style")
      (drupal-mode . "drupal")
      (java-mode . "java")
      (awk-mode . "awk")
-     (other . "gnu")))
- '(c-offsets-alist '((case-label . +)))
+     (other . "gnu"))))
+ '(c-offsets-alist (quote ((case-label . +))))
  '(calendar-week-start-day 1)
- '(confirm-kill-emacs 'y-or-n-p)
+ '(confirm-kill-emacs (quote y-or-n-p))
  '(diff-hl-margin-mode t)
  '(ecb-activation-selects-ecb-frame-if-already-active t)
  '(ecb-layout-name "leftright2")
  '(ecb-layout-window-sizes
    (quote
     (("leftright2"
-      (ecb-directories-buffer-name 0.1368421052631579 . 0.6382978723404256)
-      (ecb-sources-buffer-name 0.1368421052631579 . 0.3404255319148936)
-      (ecb-methods-buffer-name 0.2 . 0.6382978723404256)
-      (ecb-history-buffer-name 0.2 . 0.3404255319148936)))))
+      (ecb-directories-buffer-name 0.10900473933649289 . 0.6379310344827587)
+      (ecb-sources-buffer-name 0.10900473933649289 . 0.3448275862068966)
+      (ecb-methods-buffer-name 0.15639810426540285 . 0.6379310344827587)
+      (ecb-history-buffer-name 0.15639810426540285 . 0.3448275862068966)))))
  '(ecb-options-version "2.50")
  '(ecb-source-path
    (quote
     (("/home/rocher/project/codingame" "codingame")
-     ("/home/rocher/project/crayd" "crayd"))))
+     ("/home/rocher/project/crayd" "crayd")
+     ("/home/rocher/project/sdl" "sdl"))))
  '(ecb-tree-buffer-style (quote image))
  '(evil-want-Y-yank-to-eol nil)
  '(flycheck-clang-language-standard "c++14")
@@ -497,25 +507,30 @@ This function is called at the very end of Spacemacs initialization."
  '(helm-completion-in-region-fuzzy-match t)
  '(helm-file-cache-fuzzy-match t)
  '(helm-info-default-sources
-   '(helm-source-info-libc helm-source-info-elisp helm-source-info-cl helm-source-info-eieio helm-source-info-pages))
+   (quote
+    (helm-source-info-libc helm-source-info-elisp helm-source-info-cl helm-source-info-eieio helm-source-info-pages)))
  '(helm-lisp-fuzzy-completion t)
  '(helm-mode-fuzzy-match t)
  '(helm-recentf-fuzzy-match t)
  '(history-delete-duplicates t)
- '(initial-frame-alist '((cursor-type bar . 2) (vertical-scroll-bars)))
+ '(initial-frame-alist (quote ((cursor-type bar . 2) (vertical-scroll-bars))))
  '(isearch-allow-scroll t)
  '(kill-whole-line t)
+ '(neo-autorefresh t)
+ '(neo-confirm-change-root (quote off-p))
  '(olivetti-body-width 90)
  '(org-return-follows-link t)
- '(org-support-shift-select 'always)
+ '(org-support-shift-select (quote always))
  '(package-selected-packages
-   '(ac-ispell ace-jump-helm-line ace-link ace-window ada-ref-man adaptive-wrap aggressive-indent alert anaconda-mode anzu async auctex auto-compile auto-complete auto-dictionary auto-highlight-symbol auto-yasnippet autothemer avy bind-key bind-map bm buffer-move calfw clang-format clean-aindent-mode cmake-mode coffee-mode column-enforce-mode company company-anaconda company-auctex company-c-headers company-dcd company-restclient company-shell company-statistics company-tern company-web csv-mode cython-mode d-mode dash dash-functional datetime define-word diff-hl diminish disaster drupal-mode dumb-jump dynamic-ruler editorconfig elf-mode elisp-slime-nav emmet-mode engine-mode epl erc-hl-nicks erc-image erc-social-graph erc-view-log erc-yt erlang esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil evil-anzu evil-args evil-ediff evil-escape evil-exchange evil-iedit-state evil-indent-plus evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region extmap eyebrowse f fancy-battery figlet fill-column-indicator fish-mode flx flx-ido flycheck flycheck-dmd-dub flycheck-package flycheck-pos-tip flyspell-correct flyspell-correct-helm fringe-helper fuzzy geben geben-helm-projectile gh gh-md ghub gist git-commit git-gutter git-gutter+ git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode github-browse-file github-clone github-search gitignore-mode gntp gnuplot golden-ratio google-translate gotham-theme goto-chg haml-mode helm helm-ag helm-c-yasnippet helm-company helm-core helm-css-scss helm-dash helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-pydoc helm-swoop helm-themes helm-youtube help-fns+ hide-comnt highlight highlight-indentation highlight-numbers highlight-parentheses hl-todo ht htmlize hungry-delete hy-mode hydra iedit indent-guide info+ insert-shebang ivy js-doc js2-mode js2-refactor json-mode json-reformat json-snatcher kanban kaolin-themes know-your-http-well less-css-mode link-hint linum-relative live-py-mode livid-mode log4e logito logview lorem-ipsum macrostep magit magit-gh-pulls magit-gitflow magit-popup markdown-mode markdown-toc marshal mmm-mode move-text multi-term multiple-cursors neotree ob-http ob-ipython ob-php ob-prolog ob-restclient ob-sql-mode olivetti open-junk-file org-bullets org-category-capture org-download org-mime org-pdfview org-plus-contrib org-pomodoro org-present org-projectile orgit ox-pandoc ox-reveal ox-twbs package-lint packed pandoc-mode paradox parent-mode pcache pcre2el pdf-tools persp-fr persp-mode php-auto-yasnippets php-extras php-mode phpcbf phpunit pip-requirements pkg-info plantuml-mode po-mode pony-mode popup popwin pos-tip powerline projectile psvn pug-mode py-isort pyenv-mode pytest pythonic pyvenv rainbow-delimiters ranger request restart-emacs restclient restclient-helm s sass-mode scss-mode shell-pop simple-httpd skewer-mode slim-mode smartparens smeargle spaceline spinner sql-indent sx systemd tablist tagedit tern textile-mode toc-org undo-tree use-package uuidgen vi-tilde-fringe volatile-highlights web-beautify web-completion-data web-mode which-key winum with-editor ws-butler xkcd xterm-color yapfify yasnippet zeal-at-point ztree))
- '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
- '(php-mode-coding-style 'psr2)
+   (quote
+    (ac-ispell ace-jump-helm-line ace-link ace-window ada-ref-man adaptive-wrap aggressive-indent alert anaconda-mode anzu async auctex auto-compile auto-complete auto-dictionary auto-highlight-symbol auto-yasnippet autothemer avy bind-key bind-map bm buffer-move calfw clang-format clean-aindent-mode cmake-mode coffee-mode column-enforce-mode company company-anaconda company-auctex company-c-headers company-dcd company-restclient company-shell company-statistics company-tern company-web csv-mode cython-mode d-mode dash dash-functional datetime define-word diff-hl diminish disaster drupal-mode dumb-jump dynamic-ruler editorconfig elf-mode elisp-slime-nav emmet-mode engine-mode epl erc-hl-nicks erc-image erc-social-graph erc-view-log erc-yt erlang esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil evil-anzu evil-args evil-ediff evil-escape evil-exchange evil-iedit-state evil-indent-plus evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region extmap eyebrowse f fancy-battery figlet fill-column-indicator fish-mode flx flx-ido flycheck flycheck-dmd-dub flycheck-package flycheck-pos-tip flyspell-correct flyspell-correct-helm fringe-helper fuzzy geben geben-helm-projectile gh gh-md ghub gist git-commit git-gutter git-gutter+ git-gutter-fringe git-gutter-fringe+ git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode github-browse-file github-clone github-search gitignore-mode gntp gnuplot golden-ratio google-translate gotham-theme goto-chg haml-mode helm helm-ag helm-c-yasnippet helm-company helm-core helm-css-scss helm-dash helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-pydoc helm-swoop helm-themes helm-youtube help-fns+ hide-comnt highlight highlight-indentation highlight-numbers highlight-parentheses hl-todo ht htmlize hungry-delete hy-mode hydra iedit indent-guide info+ insert-shebang ivy js-doc js2-mode js2-refactor json-mode json-reformat json-snatcher kanban kaolin-themes know-your-http-well less-css-mode link-hint linum-relative live-py-mode livid-mode log4e logito logview lorem-ipsum macrostep magit magit-gh-pulls magit-gitflow magit-popup markdown-mode markdown-toc marshal mmm-mode move-text multi-term multiple-cursors neotree ob-http ob-ipython ob-php ob-prolog ob-restclient ob-sql-mode olivetti open-junk-file org-bullets org-category-capture org-download org-mime org-pdfview org-plus-contrib org-pomodoro org-present org-projectile orgit ox-pandoc ox-reveal ox-twbs package-lint packed pandoc-mode paradox parent-mode pcache pcre2el pdf-tools persp-fr persp-mode php-auto-yasnippets php-extras php-mode phpcbf phpunit pip-requirements pkg-info plantuml-mode po-mode pony-mode popup popwin pos-tip powerline projectile psvn pug-mode py-isort pyenv-mode pytest pythonic pyvenv rainbow-delimiters ranger request restart-emacs restclient restclient-helm s sass-mode scss-mode shell-pop simple-httpd skewer-mode slim-mode smartparens smeargle spaceline spinner sql-indent sr-speedbar sx systemd tablist tagedit tern textile-mode toc-org undo-tree use-package uuidgen vi-tilde-fringe volatile-highlights web-beautify web-completion-data web-mode which-key winum with-editor ws-butler xkcd xterm-color yapfify yasnippet zeal-at-point ztree)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
+ '(php-mode-coding-style (quote psr2))
  '(plantuml-jar-path "/usr/local/bin/plantuml.jar")
  '(safe-local-variable-values
-   '((flycheck-php-phpcs-executable . "/home/linkandfound.dev/repo/site/develop/vendor/squizlabs/php_codesniffer/scripts/phpcs")))
- '(tramp-syntax 'default nil (tramp))
+   (quote
+    ((flycheck-php-phpcs-executable . "/home/linkandfound.dev/repo/site/develop/vendor/squizlabs/php_codesniffer/scripts/phpcs"))))
+ '(tramp-syntax (quote default) nil (tramp))
  '(truncate-partial-width-windows 90)
  '(user-mail-address "francesc.rocher@gmail.com")
  '(visible-bell t))
@@ -535,4 +550,11 @@ This function is called at the very end of Spacemacs initialization."
  '(ecb-tag-header-face ((t (:inherit ecb-default-highlight-face))))
  '(ecb-tree-guide-line-face ((t (:inherit ecb-default-general-face :foreground "gray" :height 1.0))))
  '(line-number ((t (:inherit (shadow default) :height 0.9))))
- '(line-number-current-line ((t (:inherit line-number :foreground "orange3")))))
+ '(line-number-current-line ((t (:inherit line-number :foreground "orange3"))))
+ '(neo-banner-face ((t (:foreground "lightblue" :weight bold :height 0.85))))
+ '(neo-button-face ((t (:underline nil :height 0.85))))
+ '(neo-dir-link-face ((t (:inherit bold :foreground "#4f97d7" :height 0.85))))
+ '(neo-expand-btn-face ((t (:foreground "#b2b2b2" :height 0.85))))
+ '(neo-file-link-face ((t (:foreground "#b2b2b2" :height 0.85))))
+ '(neo-header-face ((t (:foreground "White" :height 0.85))))
+ '(neo-root-dir-face ((t (:inherit bold :foreground "#bc6ec5" :height 0.85)))))
