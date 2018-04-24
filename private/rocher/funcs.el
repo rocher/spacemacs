@@ -165,11 +165,15 @@
       (show-paren-mode)
       (setq show-paren-style 'expression))))
 
-(defun rocher/treemacs-switch-window ()
-  (interactive)
-  (if (treemacs--is-visible?)
-      (treemacs-select-window)
-    (treemacs-projectile-toggle)))
+(defun rocher/treemacs-projectile-switch-to ()
+    (interactive)
+  (if (not (functionp 'treemacs--is-visible?))
+      (progn
+        (treemacs-projectile-toggle)
+        (treemacs-tag-follow-mode))
+    (if (treemacs--is-visible?)
+        (treemacs--select-visible)
+      (treemacs-projectile-toggle))))
 
 (defun rocher/vc-dir ()
   "Opens a version control session in the current directory."

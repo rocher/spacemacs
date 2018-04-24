@@ -62,7 +62,7 @@
 (global-set-key [(shift f7)] 'hs-hide-level)
 (global-set-key [(shift f11)] 'toggle-frame-fullscreen)
 
-(global-set-key [(super ?1)] 'rocher/treemacs-switch-window)
+(global-set-key [(super ?1)] 'rocher/treemacs-projectile-switch-to)
 (global-set-key [(super ?c)] 'rocher/mc-selection-or-highlighted-symbol)
 (global-set-key [(super ?g) ?h] 'git-gutter+-show-hunk)
 (global-set-key [(super ?g) ?l] 'helm-ls-git-ls)
